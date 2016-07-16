@@ -1,0 +1,10 @@
+import datetime
+
+now = datetime.datetime.now()
+
+print ("Current Date using str\t",str(now))
+print ("Current year %d \t" %now.year)
+print ("Current strftime")
+print (now.strftime("%Y- %H:%M"))
+
+print (now.isoformat())

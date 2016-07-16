@@ -1,0 +1,16 @@
+Aditya Agarwal
+
+    Subject	Barcode	Author
+1.) EVS	BB5566	Deswal
+    Subject	Barcode	Author
+2.) PC	BB25747	Meenakshi Raman
+    Subject	Barcode	Author
+3.) Maths	BB71650	
+    Subject	Barcode	Author
+4.) Maths	BB70458	Bali
+    Subject	Barcode	Author
+5.) Mech	BB21376	Katti
+    Subject	Barcode	Author
+6.) 		
+
+
