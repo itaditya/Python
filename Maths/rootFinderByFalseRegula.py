@@ -2,10 +2,10 @@
 print('Hello User\nI find the root of functions using Bissection Method \n ')
 
 
-def expression_generator(array):
+def expression_generator(coeff):
     expression = ""
-    for i in range(len(array)):
-        expression += str(i)[::-1] + "^x" + str(array[i])[::-1] + " + "
+    for i in range(len(coeff)):
+        expression += str(i)[::-1] + "^x" + str(coeff[i])[::-1] + " + "
     expression = expression[::-1]
     print("The Expression you wrote is :")
     print(("_" * 15) + "\n")
@@ -13,10 +13,10 @@ def expression_generator(array):
     print("_" * 15)
 
 
-def fn_evaluate(array, x):
+def fn_evaluate(coeff, x):
     result = 0
-    for i in range(len(array)):
-        result += array[i] * (x**i)
+    for i in range(len(coeff)):
+        result += coeff[i] * (x**i)
     return result
 
 
@@ -28,7 +28,11 @@ def initial_domain(coeff):
 
 
 def root_finder(coeff, a, b, tolerance):
-    x = float((a + b)) / 2
+    f_a = fn_evaluate(coeff, a)
+    f_b = fn_evaluate(coeff, b)
+
+    x = float((a * f_b - b * f_a)) / (f_b - f_a)
+
     f_x = fn_evaluate(coeff, x)
     if (abs(f_x) - tolerance > 0):
         if (f_x > 0):
