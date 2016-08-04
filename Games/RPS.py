@@ -9,12 +9,12 @@ def result(i_u,i_c):
  global w_u,w_c
  mv=i_u*10+i_c
  if(mv==13 or mv==21 or mv==32):
-  w_u=w_u+50.0
+  w_u=w_u+50
   return 1
  elif(i_u==i_c):
   return 0
  else:
-  w_c=w_c+50.0
+  w_c=w_c+50
   return 2
 def choice(ch):
  if (ch==1):
