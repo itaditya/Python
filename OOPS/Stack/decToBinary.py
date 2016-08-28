@@ -16,4 +16,4 @@ def decToBinary(dec_no):
     return "".join(map(str, s.items[::-1]))
 
 dec_no = int(input("Enter A Decimal Number : "))
-print(dec_no + "in Binary is " + decToBinary(dec_no))
+print(str(dec_no) + " in Binary is " + decToBinary(dec_no))
