@@ -7,6 +7,7 @@ class rootFinder(object):
         self.root = 0
         self.tolerance = 0.000001
         self.recurrence_fn = fn
+        self.fn_value = 0
 
     def expression_generator(self):
         expression = ""
@@ -27,7 +28,7 @@ class rootFinder(object):
 
     def initial_domain(self):
         i = 0
-        while (self.fn_evaluate(i) * self.fn_evaluate((i + 1)) >= 0):
+        while (abs(self.fn_evaluate(i) * self.fn_evaluate((i + 1))) >= 0):
             i += 1
         return (i, (i + 1))
 
@@ -35,17 +36,23 @@ class rootFinder(object):
         f_a = self.fn_evaluate(a)
         f_b = self.fn_evaluate(b)
 
-        # x = float((a * f_b - b * f_a) / (f_b - f_a))
         x = float(self.recurrence_fn(a, b, f_a, f_b))
-
         f_x = self.fn_evaluate(x)
-        if (abs(f_x) - self.tolerance > 0):
+        if ((abs(f_x) > self.tolerance) and self.is_converge(f_x)):
             if (f_x * f_a < 0):
                 return self.root_finder(a, x)
             else:
                 return self.root_finder(x, b)
         else:
             self.root = x
+            return x
+        self.fn_value = f_x
+
+    def is_converge(self, f_x):
+        if(abs(f_x) < self.fn_value or self.fn_value == 0):
+            return True
+        else:
+            return False
 
     def input_params(self):
         tolerance = float(raw_input("Enter the correct decimal place\n"))
