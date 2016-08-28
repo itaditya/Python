@@ -30,8 +30,11 @@ def initial_domain(coeff):
 def root_finder(coeff, a, b, tolerance):
     x = float((a + b)) / 2
     f_x = fn_evaluate(coeff, x)
-    if (abs(f_x) - tolerance > 0):
-        if (f_x > 0):
+    f_a = fn_evaluate(coeff, a)
+    f_b = fn_evaluate(coeff, b)
+
+    if (abs(f_a - f_b) - tolerance > 0):
+        if (f_x * f_a < 0):
             return root_finder(coeff, a, x, tolerance)
         else:
             return root_finder(coeff, x, b, tolerance)
@@ -53,6 +56,6 @@ def main():
     expression_generator(coeff)
     a, b = initial_domain(coeff)
     root = root_finder(coeff, a, b, tolerance)
-    print("The root is : " + str(root))
+    print("The root is : " + str(root), fn_evaluate(coeff, root))
 
 main()
