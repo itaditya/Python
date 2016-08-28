@@ -1,2 +1,2 @@
 authGithub.py
-.pyc
+*.pyc
