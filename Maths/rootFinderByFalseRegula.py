@@ -2,10 +2,10 @@
 print('Hello User\nI find the root of functions using Bissection Method \n ')
 
 
-def expression_generator(coeff):
+def expression_generator(array):
     expression = ""
-    for i in range(len(coeff)):
-        expression += str(i)[::-1] + "^x" + str(coeff[i])[::-1] + " + "
+    for i in range(len(array)):
+        expression += str(i)[::-1] + "^x" + str(array[i])[::-1] + " + "
     expression = expression[::-1]
     print("The Expression you wrote is :")
     print(("_" * 15) + "\n")
@@ -13,32 +13,32 @@ def expression_generator(coeff):
     print("_" * 15)
 
 
-def fn_evaluate(coeff, x):
+def fn_evaluate(array, x):
     result = 0
-    for i in range(len(coeff)):
-        result += coeff[i] * (x**i)
+    for i in range(len(array)):
+        result += array[i] * (x**i)
     return result
 
 
-def initial_domain(coeff):
+def initial_domain(array):
     i = 0
-    while (fn_evaluate(coeff, i) * fn_evaluate(coeff, (i + 1)) >= 0):
+    while (fn_evaluate(array, i) * fn_evaluate(array, (i + 1)) >= 0):
         i += 1
     return (i, (i + 1))
 
 
-def root_finder(coeff, a, b, tolerance):
-    f_a = fn_evaluate(coeff, a)
-    f_b = fn_evaluate(coeff, b)
+def root_finder(array, a, b, tolerance):
+    f_a = fn_evaluate(array, a)
+    f_b = fn_evaluate(array, b)
 
     x = float((a * f_b - b * f_a)) / (f_b - f_a)
 
-    f_x = fn_evaluate(coeff, x)
+    f_x = fn_evaluate(array, x)
     if (abs(f_x) - tolerance > 0):
         if (f_x > 0):
-            return root_finder(coeff, a, x, tolerance)
+            return root_finder(array, a, x, tolerance)
         else:
-            return root_finder(coeff, x, b, tolerance)
+            return root_finder(array, x, b, tolerance)
     else:
         return x
 

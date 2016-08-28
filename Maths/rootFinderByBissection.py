@@ -20,24 +20,24 @@ def fn_evaluate(array, x):
     return result
 
 
-def initial_domain(coeff):
+def initial_domain(array):
     i = 0
-    while (fn_evaluate(coeff, i) * fn_evaluate(coeff, (i + 1)) >= 0):
+    while (fn_evaluate(array, i) * fn_evaluate(array, (i + 1)) >= 0):
         i += 1
     return (i, (i + 1))
 
 
-def root_finder(coeff, a, b, tolerance):
+def root_finder(array, a, b, tolerance):
     x = float((a + b)) / 2
-    f_x = fn_evaluate(coeff, x)
-    f_a = fn_evaluate(coeff, a)
-    f_b = fn_evaluate(coeff, b)
+    f_x = fn_evaluate(array, x)
+    f_a = fn_evaluate(array, a)
+    f_b = fn_evaluate(array, b)
 
     if (abs(f_a - f_b) - tolerance > 0):
         if (f_x * f_a < 0):
-            return root_finder(coeff, a, x, tolerance)
+            return root_finder(array, a, x, tolerance)
         else:
-            return root_finder(coeff, x, b, tolerance)
+            return root_finder(array, x, b, tolerance)
     else:
         return x
 
@@ -56,6 +56,6 @@ def main():
     expression_generator(coeff)
     a, b = initial_domain(coeff)
     root = root_finder(coeff, a, b, tolerance)
-    print("The root is : " + str(root), fn_evaluate(coeff, root))
+    print("The root is : " + str(root) "with accuracy" + (fn_evaluate(coeff, root)))
 
 main()
