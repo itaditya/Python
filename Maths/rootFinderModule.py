@@ -1,14 +1,12 @@
 #!/usr/bin//env python2.7
-print('Hello User\nI find the root of functions using Bissection Method \n ')
-
-
 class rootFinder(object):
     """docstring for rootFinder"""
 
-    def __init__(self):
+    def __init__(self, fn):
         self.array = []
         self.root = 0
         self.tolerance = 0.000001
+        self.recurrence_fn = fn
 
     def expression_generator(self):
         expression = ""
@@ -37,7 +35,8 @@ class rootFinder(object):
         f_a = self.fn_evaluate(a)
         f_b = self.fn_evaluate(b)
 
-        x = float((a * f_b - b * f_a)) / (f_b - f_a)
+        # x = float((a * f_b - b * f_a) / (f_b - f_a))
+        x = float(self.recurrence_fn(a, b, f_a, f_b))
 
         f_x = self.fn_evaluate(x)
         if (abs(f_x) - self.tolerance > 0):
@@ -60,9 +59,9 @@ class rootFinder(object):
     def show_root(self):
         print("The root is : " + str(self.root))
 
-finder = rootFinder()
-finder.input_params()
-finder.expression_generator()
-a, b = finder.initial_domain()
-finder.root_finder(a, b)
-finder.show_root()
+# finder = rootFinder()
+# finder.input_params()
+# finder.expression_generator()
+# a, b = finder.initial_domain()
+# finder.root_finder(a, b)
+# finder.show_root()
