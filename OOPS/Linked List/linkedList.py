@@ -33,8 +33,12 @@ class LinkedList(object):
 
     def insertEnd(self, data):
         new_node = Node(data)
-        self.last.set_next(new_node)
-        self.last = new_node
+        if self.last == None:
+            self.last = new_node
+            self.head = new_node
+        else:
+            self.last.set_next(new_node)
+            self.last = new_node
 
     def printList(self):
         temp = self.head
@@ -59,15 +63,45 @@ class LinkedList(object):
             temp = temp.get_next()
         return flag
 
+    def delete(self, item):
+        # current = self.head
+        # ahead = self.head.get_next()
+        # if(ahead == None):
+        #     # only one element
+        #     self.head = None
+        # else:
+        #     while(ahead != None):
+        #         if (ahead.get_data() == item):
+        #             break
+        #         current = ahead
+        #         ahead = ahead.get_next()
+        #     current.set_next(ahead.get_next())
+        #     # thus on coming out of loop we have current at the node just before
+        #     # the toBeDeleted element and current at that element
+        current = self.head
+        previous = None
+        found = False
+        while current and found is False:
+            if current.get_data() == item:
+                found = True
+            else:
+                previous = current
+                current = current.get_next()
+        if current is None:
+            raise ValueError("Data not in list")
+        if previous is None:
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
 
-l = LinkedList()
-l.insertBeg(3)
-l.insertBeg(2)
-l.insertBeg(1)
-l.insertBeg(0)
-l.insertEnd(4)
-l.insertEnd(5)
-l.insertEnd(6)
-l.printList()
-print "size is : ", l.size()
-print "found : ", l.search(9)
+a = LinkedList()
+a.insertEnd(0)
+a.insertEnd(1)
+a.printList()
+print "size is : ", a.size()
+print "found : ", a.search(0)
+print "deleted : "
+a.delete(1)
+print "found : ", a.search(0)
+print "size is : ", a.size()
+a.printList()
