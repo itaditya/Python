@@ -20,7 +20,7 @@ class LinkedList(object):
         self.head = head
         self.last = head
 
-    def isEmpty():
+    def isEmpty(self):
         return self.head == None
 
     def insertBeg(self, data):
@@ -105,3 +105,39 @@ a.delete(1)
 print "found : ", a.search(0)
 print "size is : ", a.size()
 a.printList()
+
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+moves = 0
+
+
+def max(n):
+    a = int(n**(1 / 2.0))
+    while(a >= 2):
+        b = n / a
+        intb = int(b)
+        if(b == intb):
+            return intb
+        a -= 1
+    return -1
+
+
+def down(n):
+    global moves
+    moves += 1
+    x = -1
+    if n > 3:
+        x = max(n)
+    y = n - 1
+    if(x == 0 or y == 0):
+        return moves
+    if(x > 0 and x < y):
+        return down(x)
+    else:
+        return down(y)
+
+q = int(raw_input())
+for a0 in range(q):
+    moves = 0
+    N = int(raw_input())
+    print down(N)

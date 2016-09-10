@@ -15,23 +15,26 @@ def prec(operator):
 
 def postfixConv():
     s = Stack()
-    expression = (raw_input()).split()
+    expression = list(raw_input())
     i = 0
-    while(i < len(expression)):
+    postfixExp = ""
+    l = len(expression)
+    while(i < l):
         if(prec(expression[i]) != -1):
             # means we get operations
             if(prec(s.peek()) < prec(expression[i])):
                 # simple situation
                 s.push(expression[i])
             else:
-                print(s.pop()),
+                postfixExp += s.pop()
                 s.push(expression[i])
         else:
             # means we get operands
-            print(expression[i]),
+            postfixExp += expression[i]
         i += 1
     while(prec(s.peek()) != -1):
-        print(s.pop()),
+        postfixExp += s.pop()
+    print postfixExp
 
 postfixConv()
 
