@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "57daae9a9ad4b60b008eb140",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "PreNursery",
+    "section": "A",
+    "classTeacher": "Pooja Pathak",
+    "__v": 0
+  },
+  {
+    "_id": "57daaed49ad4b60b008eb141",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "PreNursery",
+    "section": "B",
+    "classTeacher": "Pooja Prakash",
+    "__v": 0
+  },
+  {
+    "_id": "57daaed89ad4b60b008eb142",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "PreNursery",
+    "section": "B",
+    "classTeacher": "Pooja Prakash",
+    "__v": 0
+  },
+  {
+    "_id": "57daaee89ad4b60b008eb143",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "A",
+    "section": "S",
+    "classTeacher": "1",
+    "__v": 0
+  },
+  {
+    "_id": "57daaf3d9ad4b60b008eb144",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "C",
+    "section": "1",
+    "classTeacher": "X",
+    "__v": 0
+  },
+  {
+    "_id": "57daaf589ad4b60b008eb145",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "ASGjs",
+    "section": "sd",
+    "classTeacher": "X",
+    "__v": 0
+  },
+  {
+    "_id": "57daafb89ad4b60b008eb146",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "PreNursery",
+    "section": "ghn",
+    "classTeacher": "gjkm",
+    "__v": 0
+  },
+  {
+    "_id": "57dace1e9ad4b60b008eb148",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "PreNursery",
+    "section": "A",
+    "classTeacher": "231234",
+    "__v": 0
+  },
+  {
+    "_id": "57dad2af9ad4b60b008eb149",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "classTeacher": "Tobias",
+    "class": "PreNursery",
+    "section": "1",
+    "__v": 0
+  },
+  {
+    "_id": "57dad4499ad4b60b008eb14a",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "classTeacher": "57daae9a9ad4b60b008eb140",
+    "class": "A",
+    "section": "B",
+    "__v": 0
+  },
+  {
+    "_id": "57dbf59a9ad4b60b008eb14d",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "classTeacher": "57daab129ad4b60b008eb13f",
+    "class": "PreNursery",
+    "section": "A",
+    "__v": 0
+  },
+  {
+    "_id": "57dbf6c39ad4b60b008eb14e",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "A",
+    "section": "B",
+    "classTeacher": "57daab129ad4b60b008eb13f",
+    "__v": 0
+  },
+  {
+    "_id": "57dbff679ad4b60b008eb14f",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "classTeacher": "57daab129ad4b60b008eb13f",
+    "class": "PreNursery",
+    "section": "B",
+    "__v": 0
+  },
+  {
+    "_id": "57dd19979ad4b60b008eb151",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "class": "PreNursery",
+    "section": "B",
+    "classTeacher": "57dd198d9ad4b60b008eb150",
+    "__v": 0
+  },
+  {
+    "_id": "57dd1c519ad4b60b008eb153",
+    "schoolID": "57d7eb91fa5f2e0800e9837c",
+    "classTeacher": "57dd1c459ad4b60b008eb152",
+    "section": "A",
+    "class": "PreNursery",
+    "__v": 0
+  }
+]
