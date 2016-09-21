@@ -44,7 +44,7 @@ class Example(Frame):
                              style="Medium.TButton", command=self.parent.quit)
         closeButton.pack(side=RIGHT)
         okButton = Button(
-            self, text="JustWravel", style="Medium.TButton", command=self.hello)
+            self, text="JustWravel", style="Medium.TButton", command=self.btnOneFn)
         okButton.pack(side=RIGHT)
         okButton = Button(self, text="Target Plus",
                           style="Medium.TButton", command=self.btnTwoFn)
@@ -63,15 +63,22 @@ class Example(Frame):
         self.author = j["author"]
 
     def btnOneFn(self):
-        subprocess.Popen(['xdg-open', "../../media/adi/Coding/git/targetplus"])
+        subprocess.Popen(
+            ['xdg-open', "../../media/adi/Coding/latestJustWravel"])
+        subprocess.Popen(
+            ['gnome-terminal'], cwd=r'../../media/adi/Coding/latestJustWravel')
 
     def btnTwoFn(self):
         subprocess.Popen(
-            ['xdg-open', "/../../media/adi/Coding/git/targetplus"])
+            ['xdg-open', "../../media/adi/Coding/git/targetplus"])
+        subprocess.Popen(
+            ['gnome-terminal'], cwd=r'../../media/adi/Coding/git/targetplus')
 
     def btnThreeFn(self):
         subprocess.Popen(
             ['xdg-open', "../../media/adi/Coding/git/techtrek"])
+        subprocess.Popen(
+            ['gnome-terminal'], cwd=r'../../media/adi/Coding/git/techtrek')
 
 
 def main():
