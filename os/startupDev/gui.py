@@ -1,10 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from Tkinter import Tk, RIGHT, LEFT, BOTH, RAISED
+from Tkinter import Tk, RIGHT, LEFT, BOTH, RAISED, CENTER
 from ttk import Frame, Button, Style, Label
 import json
 import requests
+import subprocess
 
 
 class Example(Frame):
@@ -13,47 +14,69 @@ class Example(Frame):
         Frame.__init__(self, parent)
 
         self.parent = parent
+        self.quote = "I was supposed to be a cool quote . But then internet abandoned me !"
+        self.author = "Aditya"
         self.initUI()
+        # self.getQuote()
 
     def initUI(self):
 
         self.parent.title("Buttons")
         self.style = Style()
         self.style.theme_use("alt")
-        self.style.configure(
-            "PW.TLabel", foreground="#fff", background="#300A24")
-        self.style.configure('.', font=('Helvetica', 12))
 
-        # frame = Frame(self, relief=RAISED, borderwidth=1)
-        # frame.pack(fill=BOTH, expand=True)
-        # self.parent.configure(background="#300A24")
-        # j = json.loads(requests.get(
-        #     "http://quotes.stormconsultancy.co.uk/random.json").text)
-        # quote = Label(self, text=j["quote"], height=10,
-        #               width=30, wraplength=300, bg="#300A24", padx=10, fg="#fff", font=("Helvetica", 14))
-        # quote.pack()
-        # author = Label(self, text="-" + j["author"], anchor="e",
-        #                justify="right", padx=20, pady=15, bg="#300A24", fg="#fff", font=("Helvetica", 12))
-        # author.pack()
-        quote = Label(self, text="Loremipsumdolorsitamet,consecteturadipisicingelit.Architectovelitvitaemodialiquamquasnamautemassumendaplaceatdolorveritatisdignissimos,ipsumsequisolutaeosisteaccusamus,rerumrepudiandaeadipisci.", style="PW.TLabel")
-        quote.pack()
+        # Styling
+        self.style.configure('.', font=('Helvetica', 12), background="#300A24")
+        self.style.configure(
+            "PW.TLabel", foreground="#fff", background="#300A24", padding=20, justify=CENTER, wraplength="350")
+        self.style.configure(
+            "Medium.TButton", foreground="#300A24", background="#fff", borderwidth=0, padding=8, font=('Helvetica', 9))
+        # Styling Ends
+
+        quoteLabel = Label(self, text=self.quote, style="PW.TLabel")
+        quoteLabel.pack()
+        authorLabel = Label(self, text=self.author, style="PW.TLabel")
+        authorLabel.pack()
 
         self.pack(fill=BOTH, expand=True)
 
-        closeButton = Button(self, text="Close", command=self.parent.quit)
-        closeButton.pack(side=RIGHT, padx=5, pady=5)
-        okButton = Button(self, text="OK")
-        okButton.pack(side=LEFT, padx=5, pady=5)
-        okButton = Button(self, text="OK")
-        okButton.pack(side=LEFT, padx=5, pady=5)
-        okButton = Button(self, text="OK")
-        okButton.pack(side=LEFT, padx=5, pady=5)
+        closeButton = Button(self, text="Close This",
+                             style="Medium.TButton", command=self.parent.quit)
+        closeButton.pack(side=RIGHT)
+        okButton = Button(
+            self, text="JustWravel", style="Medium.TButton", command=self.hello)
+        okButton.pack(side=RIGHT)
+        okButton = Button(self, text="Target Plus",
+                          style="Medium.TButton", command=self.btnTwoFn)
+        okButton.pack(side=RIGHT)
+        okButton = Button(self, text="Techtrek",
+                          style="Medium.TButton", command=self.btnThreeFn)
+        okButton.pack(side=RIGHT)
+
+    def hello(self):
+        print("Print Hello")
+
+    def getQuote(self):
+        j = json.loads(requests.get(
+            "http://quotes.stormconsultancy.co.uk/random.json").text)
+        self.quote = j["quote"]
+        self.author = j["author"]
+
+    def btnOneFn(self):
+        subprocess.Popen(['xdg-open', "../../media/adi/Coding/git/targetplus"])
+
+    def btnTwoFn(self):
+        subprocess.Popen(
+            ['xdg-open', "/../../media/adi/Coding/git/targetplus"])
+
+    def btnThreeFn(self):
+        subprocess.Popen(
+            ['xdg-open', "../../media/adi/Coding/git/techtrek"])
 
 
 def main():
 
     root = Tk()
-    root.geometry("400x200+300+300")
     app = Example(root)
     root.mainloop()
 
