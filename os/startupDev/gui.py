@@ -44,12 +44,12 @@ class Example(Frame):
                              style="Medium.TButton", command=self.parent.quit)
         closeButton.pack(side=RIGHT)
         okButton = Button(
-            self, text="JustWravel", style="Medium.TButton", command=self.btnOneFn)
+            self, text="Portfolio", style="Medium.TButton", command=self.btnOneFn)
         okButton.pack(side=RIGHT)
-        okButton = Button(self, text="Target Plus",
+        okButton = Button(self, text="JStack",
                           style="Medium.TButton", command=self.btnTwoFn)
         okButton.pack(side=RIGHT)
-        okButton = Button(self, text="Techtrek",
+        okButton = Button(self, text="Python",
                           style="Medium.TButton", command=self.btnThreeFn)
         okButton.pack(side=RIGHT)
 
@@ -64,21 +64,21 @@ class Example(Frame):
 
     def btnOneFn(self):
         subprocess.Popen(
-            ['xdg-open', "../../media/adi/Coding/latestJustWravel"])
+            ['nautilus', "/mnt/864A162B4A16190F/git/portfolio"])
         subprocess.Popen(
-            ['gnome-terminal'], cwd=r'../../media/adi/Coding/latestJustWravel')
+            ['gnome-terminal'], cwd=r'/mnt/864A162B4A16190F/git/portfolio')
 
     def btnTwoFn(self):
         subprocess.Popen(
-            ['xdg-open', "../../media/adi/Coding/git/targetplus"])
+            ['nautilus', "/mnt/864A162B4A16190F/git/JStack"])
         subprocess.Popen(
-            ['gnome-terminal'], cwd=r'../../media/adi/Coding/git/targetplus')
+            ['gnome-terminal'], cwd=r'/mnt/864A162B4A16190F/git/JStack')
 
     def btnThreeFn(self):
         subprocess.Popen(
-            ['xdg-open', "../../media/adi/Coding/git/techtrek"])
+            ['nautilus', "/mnt/864A162B4A16190F/git/Python"])
         subprocess.Popen(
-            ['gnome-terminal'], cwd=r'../../media/adi/Coding/git/techtrek')
+            ['gnome-terminal'], cwd=r'/mnt/864A162B4A16190F/git/Python')
 
 
 def main():
