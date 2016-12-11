@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 from Tkinter import Tk, RIGHT, LEFT, BOTH, RAISED, CENTER
 from ttk import Frame, Button, Style, Label
 import json
@@ -64,21 +61,27 @@ class Example(Frame):
 
     def btnOneFn(self):
         subprocess.Popen(
-            ['nautilus', "/mnt/864A162B4A16190F/git/portfolio"])
+            ['explorer', "F:\git\portfolio"])
         subprocess.Popen(
-            ['gnome-terminal'], cwd=r'/mnt/864A162B4A16190F/git/portfolio')
+            ['console ','-t ','New Tab'], cwd='F:\git\portfolio')
+        subprocess.Popen(
+            ['subl', 'F:\git\JStack'])
 
     def btnTwoFn(self):
         subprocess.Popen(
-            ['nautilus', "/mnt/864A162B4A16190F/git/JStack"])
+            ['explorer', "F:\git\JStack"])
         subprocess.Popen(
-            ['gnome-terminal'], cwd=r'/mnt/864A162B4A16190F/git/JStack')
+            ['console'], cwd='F:\git\JStack')
+        subprocess.Popen(
+            ['subl', 'F:\git\JStack'])
 
     def btnThreeFn(self):
         subprocess.Popen(
-            ['nautilus', "/mnt/864A162B4A16190F/git/Python"])
+            ['explorer', "F:\git\Python"])
         subprocess.Popen(
-            ['gnome-terminal'], cwd=r'/mnt/864A162B4A16190F/git/Python')
+            ['console'], cwd="F:\git\Python")
+        subprocess.Popen(
+            ['subl', 'F:\git\Python'])
 
 
 def main():
