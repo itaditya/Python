@@ -13,8 +13,7 @@ class Example(Frame):
         self.parent = parent
         self.quote = "I was supposed to be a cool quote . But then internet abandoned me !"
         self.author = "Aditya"
-        self.initUI()
-        # self.getQuote()
+        self.getQuote()
 
     def initUI(self):
 
@@ -54,34 +53,40 @@ class Example(Frame):
         print("Print Hello")
 
     def getQuote(self):
-        j = json.loads(requests.get(
-            "http://quotes.stormconsultancy.co.uk/random.json").text)
-        self.quote = j["quote"]
-        self.author = j["author"]
+        # j = json.loads(requests.get(
+            # "http://quotes.stormconsultancy.co.uk/random.json").text)
+        # self.quote = j["quote"]
+        # self.author = j["author"]
+        self.initUI()
 
     def btnOneFn(self):
         subprocess.Popen(
             ['explorer', "F:\git\portfolio"])
         subprocess.Popen(
-            ['console ','-t ','New Tab'], cwd='F:\git\portfolio')
+            ['subl', 'F:\git\portfolio'])
         subprocess.Popen(
-            ['subl', 'F:\git\JStack'])
+            ['console ', '-t ', 'New Tab'], cwd='F:\git\portfolio')
 
     def btnTwoFn(self):
         subprocess.Popen(
             ['explorer', "F:\git\JStack"])
         subprocess.Popen(
+            ['subl', 'F:\git\JStack'])
+        subprocess.Popen(
             ['console'], cwd='F:\git\JStack')
         subprocess.Popen(
-            ['subl', 'F:\git\JStack'])
+            ['chrome', 'http://localhost:8080'])
 
     def btnThreeFn(self):
         subprocess.Popen(
-            ['explorer', "F:\git\Python"])
+            ['explorer', "F:\git\ClubPortal\public"])
         subprocess.Popen(
-            ['console'], cwd="F:\git\Python")
+            ['subl', 'F:\git\ClubPortal\public'])
         subprocess.Popen(
-            ['subl', 'F:\git\Python'])
+            ['console'], cwd="F:\git\ClubPortal\public")
+        subprocess.Popen(
+            ['chrome', 'http://localhost:8080'])
+        # "F:\git\Python"
 
 
 def main():
