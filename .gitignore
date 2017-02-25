@@ -2,4 +2,5 @@ authGithub.py
 /gImgDownload
 /ud120-projects
 /os/gitAutomater
+/Scrape/selenium/Fb/credentials.json
 *.pyc
