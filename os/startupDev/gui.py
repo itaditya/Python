@@ -3,16 +3,14 @@ from ttk import Frame, Button, Style, Label
 import json
 import requests
 import subprocess
-
-
 class Example(Frame):
 
     def __init__(self, parent):
         Frame.__init__(self, parent)
-
         self.parent = parent
         self.quote = "I was supposed to be a cool quote . But then internet abandoned me !"
         self.author = "Aditya"
+        self.project = [{"name":"Portfolio","location": "F:\git\portfolio","command": "http://localhost:8080"},{"name":"JStack","location":"F:\git\JStack" ,"command": "http://localhost:8080"},{"name":"GPS_Track","location": "F:\git\GPS_Track","command": "http://localhost:8080"}]
         self.getQuote()
 
     def initUI(self):
@@ -39,18 +37,15 @@ class Example(Frame):
         closeButton = Button(self, text="Close This",
                              style="Medium.TButton", command=self.parent.quit)
         closeButton.pack(side=RIGHT)
-        okButton = Button(
-            self, text="Portfolio", style="Medium.TButton", command=self.btnOneFn)
-        okButton.pack(side=RIGHT)
-        okButton = Button(self, text="JStack",
-                          style="Medium.TButton", command=self.btnTwoFn)
-        okButton.pack(side=RIGHT)
-        okButton = Button(self, text="Python",
-                          style="Medium.TButton", command=self.btnThreeFn)
-        okButton.pack(side=RIGHT)
-
-    def hello(self):
-        print("Print Hello")
+        projectButton = Button(self, text=self.project[0]["name"],
+                          style="Medium.TButton", command=lambda: self.btnFn(0))
+        projectButton.pack(side=RIGHT)
+        projectButton = Button(self, text=self.project[1]["name"],
+                          style="Medium.TButton", command=lambda: self.btnFn(1))
+        projectButton.pack(side=RIGHT)
+        projectButton = Button(self, text=self.project[2]["name"],
+                          style="Medium.TButton", command=lambda: self.btnFn(2))
+        projectButton.pack(side=RIGHT)
 
     def getQuote(self):
         # j = json.loads(requests.get(
@@ -59,34 +54,15 @@ class Example(Frame):
         # self.author = j["author"]
         self.initUI()
 
-    def btnOneFn(self):
+    def btnFn(self,index):
         subprocess.Popen(
-            ['explorer', "F:\git\portfolio"])
+            ['explorer', self.project[index]["location"]])
         subprocess.Popen(
-            ['subl', 'F:\git\portfolio'])
+            ['subl', self.project[index]["location"]])
         subprocess.Popen(
-            ['console ', '-t ', 'New Tab'], cwd='F:\git\portfolio')
-
-    def btnTwoFn(self):
+            ['console'], cwd=self.project[index]["location"])
         subprocess.Popen(
-            ['explorer', "F:\git\JStack"])
-        subprocess.Popen(
-            ['subl', 'F:\git\JStack'])
-        subprocess.Popen(
-            ['console'], cwd='F:\git\JStack')
-        subprocess.Popen(
-            ['chrome', 'http://localhost:8080'])
-
-    def btnThreeFn(self):
-        subprocess.Popen(
-            ['explorer', "F:\git\ClubPortal\public"])
-        subprocess.Popen(
-            ['subl', 'F:\git\ClubPortal\public'])
-        subprocess.Popen(
-            ['console'], cwd="F:\git\ClubPortal\public")
-        subprocess.Popen(
-            ['chrome', 'http://localhost:8080'])
-        # "F:\git\Python"
+            ['chrome', self.project[index]["command"]])
 
 
 def main():
